@@ -1,0 +1,13 @@
+
+
+header{
+    background: linear-gradient(to left, #240951 0%, #1f63c0 100%);
+}
+#search-button{
+    background-color: #2e9aec !important;
+}
+#search-input{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    box-shadow: 2px 2px #888888;
+}
