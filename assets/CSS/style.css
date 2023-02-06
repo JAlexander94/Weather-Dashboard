@@ -11,3 +11,16 @@ header{
     border-right: 1px solid black;
     box-shadow: 2px 2px #888888;
 }
+h3{
+    font-size: 20px !important;
+}
+#forecast5{
+    background-color: #283f52;
+    color: white;
+    border: 2px solid white;
+    max-width: 25%;
+}
+#today{
+    border: 1px solid black;
+    padding: 2px !important;
+}
