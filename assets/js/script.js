@@ -69,7 +69,7 @@ function getweather(queryURL,city){
                 day.attr("id","forecasttoday")
                     var timedate = moment.unix(data.list[0].dt).utc()
                     var date = $("<h3></h3>").text(city+" ("+timedate.format("D/M/YYYY")+")")
-                    var iconurl = "http://openweathermap.org/img/w/"+data.list[0].weather[0].icon+".png"
+                    var iconurl = "https://openweathermap.org/img/w/"+data.list[0].weather[0].icon+".png"
                     var icon = $("<img></img>").attr("src",iconurl)
                     date.append(icon)
                     var temp= $("<p></p>").text("Temp: "+(data.list[0].main.temp-273.15).toFixed(2)+"°C")
@@ -83,7 +83,7 @@ function getweather(queryURL,city){
                     var listlength = data.list.length-1
                     var timedate = moment.unix(data.list[listlength].dt).utc()
                     var date = $("<h4></h4>").text(timedate.format("D/M/YYYY"))
-                    var iconurl = "http://openweathermap.org/img/w/"+data.list[listlength].weather[0].icon+".png"
+                    var iconurl = "https://openweathermap.org/img/w/"+data.list[listlength].weather[0].icon+".png"
                     var icon = $("<img></img>").attr("src",iconurl)
                     var temp= $("<p></p>").text("Temp: "+(data.list[listlength].main.temp-273.15).toFixed(2)+"°C")
                     var wind = $("<p></p>").text("Wind: "+data.list[listlength].wind.speed+" KPH")
@@ -97,7 +97,7 @@ function getweather(queryURL,city){
                     var timedate = moment.unix(data.list[i].dt).utc()
                     if(moment(timedate).date()==j&&moment(timedate).hour()>=12&&moment(timedate).hour()<15){
                     var date = $("<h4></h4>").text(timedate.format("D/M/YYYY"))
-                    var iconurl = "http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png"
+                    var iconurl = "https://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png"
                     var icon = $("<img></img>").attr("src",iconurl)
                     var temp= $("<p></p>").text("Temp: "+(data.list[i].main.temp-273.15).toFixed(2)+"°C")
                     var wind = $("<p></p>").text("Wind: "+data.list[i].wind.speed+" KPH")
