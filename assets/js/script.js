@@ -6,6 +6,7 @@ $("#search-button").on("click",function(event){
     $("#forecast").empty()
     $("#today").empty()
     var city = $("#search-input").val().trim()
+    if(city===""){return}else{
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+city+APIKey
     getweather(queryURL,city)
 
@@ -17,6 +18,7 @@ $("#search-button").on("click",function(event){
     }
 
     $("#search-input").val("")
+    }
 })
 
 $("#history").on("click","button",function(event){
@@ -66,12 +68,12 @@ function getweather(queryURL,city){
             {   
                 day.attr("id","forecasttoday")
                     var timedate = moment.unix(data.list[0].dt).utc()
-                    var date = $("<h4></h4>").text(city+" "+timedate.format("D/M/YYYY"))
+                    var date = $("<h3></h3>").text(city+" ("+timedate.format("D/M/YYYY")+")")
                     var iconurl = "http://openweathermap.org/img/w/"+data.list[0].weather[0].icon+".png"
                     var icon = $("<img></img>").attr("src",iconurl)
                     date.append(icon)
                     var temp= $("<p></p>").text("Temp: "+(data.list[0].main.temp-273.15).toFixed(2)+"°C")
-                    var wind = $("<p></p>").text("Wind: "+data.list[0].wind.speed+" KPH")
+                    var wind = $("<p></p>").text("Wind: "+(data.list[0].wind.speed).toFixed(1)+" KPH")
                     var humidity = $("<p></p>").text("Humidity: "+data.list[0].main.humidity+"%")
                     day.append(date,temp,wind,humidity)
                 $("#today").append(day)
@@ -103,8 +105,10 @@ function getweather(queryURL,city){
                     day.append(date,icon,temp,wind,humidity)
                     }
                 }
-                $("#forecast").append(day)}
+                $("#forecast").append(day)
+                }
         }
+        $("#forecast").prepend($("<h3></h3>").text("5-Day Forecast:").attr("class","col-12"))
     })
     })
 }
