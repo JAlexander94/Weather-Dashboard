@@ -1,6 +1,11 @@
+//api key created for use in urls and history varibale declared for use in storing past searches
 var APIKey = "&APPID=b5584f3fab1573ab189fa3f4a7fee13c"
 let history = [];
+
+// call initialisation to call past searches
 init()
+
+//event listener which executes when the serach button is clicked and calls the function which shows the weather, the function which populates the history section and stores the latest search in localstorage
 $("#search-button").on("click",function(event){
     event.preventDefault()
     $("#forecast").empty()
@@ -21,6 +26,7 @@ $("#search-button").on("click",function(event){
     }
 })
 
+//event listener which executes when one of the history buttons is pressed calling the function which gets the weather forecast
 $("#history").on("click","button",function(event){
     event.preventDefault()
     $("#forecast").empty()
@@ -31,6 +37,7 @@ $("#history").on("click","button",function(event){
     getweather(queryURL,city)
 })
 
+//initialisation function which pulls the search history data from local storage and calls the populatehistory function to add the history buttons on start up
 function init(){
     history = JSON.parse(localStorage.getItem("history"))
     if(history===null){history = []}else{
@@ -38,6 +45,7 @@ function init(){
     }
 }
 
+// function which populates the history section with buttons of the previous that have been searched for which are currently stored in the history array
 function populatehistory(city){
     for(i=0;i<history.length;i++){
         var cityhist = $("<button></button>").text(history[i])
@@ -48,6 +56,7 @@ function populatehistory(city){
     }
 }
 
+//function which populates the #today and #forecast with todays and the 5-day forecast respectively using the queryURL and city from the prior event listeners
 function getweather(queryURL,city){
     $.ajax({
     url: queryURL,
