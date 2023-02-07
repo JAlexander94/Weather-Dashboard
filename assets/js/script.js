@@ -7,7 +7,7 @@ $("#search-button").on("click",function(event){
     $("#today").empty()
     var city = $("#search-input").val().trim()
     if(city===""){return}else{
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+city+APIKey
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+APIKey
     getweather(queryURL,city)
 
     if(history.includes(city)){return}else{
@@ -27,7 +27,7 @@ $("#history").on("click","button",function(event){
     $("#today").empty()
     var city = $(this).text()
     console.log(city)
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+city+APIKey
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+APIKey
     getweather(queryURL,city)
 })
 
