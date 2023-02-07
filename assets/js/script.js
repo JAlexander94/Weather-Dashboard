@@ -15,6 +15,8 @@ $("#search-button").on("click",function(event){
     $("#history").empty()
     populatehistory(city)
     }
+
+    $("#search-input").val("")
 })
 
 $("#history").on("click","button",function(event){
@@ -73,6 +75,19 @@ function getweather(queryURL,city){
                     var humidity = $("<p></p>").text("Humidity: "+data.list[0].main.humidity+"%")
                     day.append(date,temp,wind,humidity)
                 $("#today").append(day)
+            }
+            else if(j==today+5&&moment().hour()<15) {
+                day.attr("id","forecast5")
+                    var listlength = data.list.length-1
+                    var timedate = moment.unix(data.list[listlength].dt).utc()
+                    var date = $("<h4></h4>").text(timedate.format("D/M/YYYY"))
+                    var iconurl = "http://openweathermap.org/img/w/"+data.list[listlength].weather[0].icon+".png"
+                    var icon = $("<img></img>").attr("src",iconurl)
+                    var temp= $("<p></p>").text("Temp: "+(data.list[listlength].main.temp-273.15).toFixed(2)+"°C")
+                    var wind = $("<p></p>").text("Wind: "+data.list[listlength].wind.speed+" KPH")
+                    var humidity = $("<p></p>").text("Humidity: "+data.list[listlength].main.humidity+"%")
+                    day.append(date,icon,temp,wind,humidity)
+                $("#forecast").append(day)
             }
             else{
                 day.attr("id","forecast5")
