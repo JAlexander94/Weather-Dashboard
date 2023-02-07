@@ -27,15 +27,15 @@ The project specifically wanted the user to be able to:
 
 Click the link to run the website
 
-
+https://jalexander94.github.io/Weather-Dashboard/
 
 ## Usage
 
 Search for a cities weather forecast by typing it into the search bar and clicking search or clicking one of the history buttons to see their forecast
 
-![screenshot of the webpage before any city has been searched for]()
-![screenshot of the webpage after you have serached for a city showing the weather forecasts and with the city added to your history as a button]()
-![screenshot of the webpage after you come back to it with your history still hwoing as buttons]()
+![screenshot of the webpage before any city has been searched for](https://github.com/JAlexander94/Weather-Dashboard/blob/main/assets/images/Screenshot%202023-02-07%20at%2009.58.11.png)
+![screenshot of the webpage after you have searched for a city showing the weather forecasts and with the city added to your history as a button](https://github.com/JAlexander94/Weather-Dashboard/blob/main/assets/images/Screenshot%202023-02-07%20at%2010.10.39.png)
+![screenshot of the webpage after you come back to it with your history still hwoing as buttons](https://github.com/JAlexander94/Weather-Dashboard/blob/main/assets/images/Screenshot%202023-02-07%20at%2009.59.28.png)
 
 ## License
 
